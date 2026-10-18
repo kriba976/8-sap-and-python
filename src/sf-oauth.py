@@ -82,3 +82,27 @@ entity = "PerPerson"
 url = build_url(host, entity)
 
 #print(url)
+
+
+#build token url
+def build_token_url(host : str) -> str:
+    if not str(host).startswith("https://"):
+        return f"https://{host}/oauth/token"
+    else:
+        return f"{host}/oauth/token"
+
+host = "https://www.successfactors.com"
+#print(build_token_url(host))
+
+
+#-----------------------------------------------------------------
+#functions with dictionary
+def build_user_dict(name, age, city) -> dict:
+    new_user = {"name": name, "age": age, "city": city}
+    return new_user
+
+name = "John"
+age = 30
+city = "New York"
+user = build_user_dict(name, age, city)
+print(user)
